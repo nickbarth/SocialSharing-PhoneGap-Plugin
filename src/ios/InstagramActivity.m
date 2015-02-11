@@ -44,7 +44,9 @@
       image = item;
       NSString *base64 = [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
       NSURL *imageURL = [NSURL URLWithString:[@"data:image/png;base64," stringByAppendingString:base64]];
-      [[UIApplication sharedApplication] openURL:imageURL];
+      if (![[UIApplication sharedApplication] openURL:imageURL]) {
+        [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[imageURL description] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
+      }
     }
   }
 
