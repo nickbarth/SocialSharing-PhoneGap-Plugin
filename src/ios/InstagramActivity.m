@@ -42,7 +42,7 @@
 
     for (id object in self.activityItems) {
 
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:NSStringFromClass[object class] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:NSStringFromClass([object class]) delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
         [alert show];
 
         if ([object isKindOfClass:[NSString class]]) {
