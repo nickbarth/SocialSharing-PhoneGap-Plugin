@@ -37,14 +37,9 @@
     int counter = 0;
     NSString *message;
     NSURL *url;
-    NSArray *files;
-    NSURL *image;
+    NSString *image;
 
     for (id object in self.activityItems) {
-
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:NSStringFromClass([object class]) delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-        [alert show];
-
         if ([object isKindOfClass:[NSString class]]) {
           message = object;
         }
@@ -53,23 +48,20 @@
           url = object;
         }
 
-        if ([object isKindOfClass:[NSMutableArray class]]) {
+        if ([object isKindOfClass:[_NSCFString class]]) {
           counter++;
-          files = [NSArray arrayWithArray:object];
-          image = [files objectAtIndex:0];
+          image = object;
         }
     }
 
-    /*
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
     alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[url absoluteString] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
-    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[image absoluteString] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:image delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
     alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"A string: %d", counter] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
-    */
 }
 
 @end
