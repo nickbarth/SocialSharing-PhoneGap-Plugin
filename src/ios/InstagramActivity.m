@@ -36,15 +36,22 @@
 {
     int counter = 0;
     NSString *message;
+    NSURL *url;
 
     for (id object in self.activityItems) {
         counter++;
         if ([object isKindOfClass:[NSString class]]) {
           message = object;
         }
+
+        if ([object isKindOfClass:[NSURL class]]) {
+          url = object;
+        }
     }
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alert show];
+    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[url absoluteString] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
     alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"A string: %d", counter] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
