@@ -34,14 +34,24 @@
 
 - (void)performActivity
 {
+    int counter = 0;
+    NSString *message;
+    NSString *subject;
+    NSString *image;
+    NSString *link;
+
     for (id object in self.activityItems) {
         if ([object isKindOfClass:[NSString class]]) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:object delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-            [alert show];
+          counter++;
+          if (counter == 1) message = object;
+          if (counter == 2) subject = object;
+          if (counter == 3) image = object;
+          if (counter == 4) link = object;
         }
     }
-    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=yourappid"]];
-    // [self activityDidFinish:YES];
+
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:subject delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alert show];
 }
 
 @end
