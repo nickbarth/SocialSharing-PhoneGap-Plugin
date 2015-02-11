@@ -33,9 +33,8 @@
 
 - (void)performActivity
 {
-
     NSString *test = [InstagramActivity(activityItems) firstObject];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:test" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:test delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
 
     if (_delegate && [_delegate respondsToSelector:@selector(ActivityPerform)]) {
