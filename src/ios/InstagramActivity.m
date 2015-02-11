@@ -48,7 +48,7 @@
           url = object;
         }
 
-        if ([object isKindOfClass:[_NSCFString class]]) {
+        if ([object isKindOfClass:[__NSCFString class]]) {
           counter++;
           image = object;
         }
