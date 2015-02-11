@@ -33,6 +33,12 @@
 
 - (void)performActivity
 {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView"
+              message:@"My message" delegate:self cancelButtonTitle:@"Cancel"
+                      otherButtonTitles:@"OK", nil];
+    [alert show];
+    [alert release];
+
     if (_delegate && [_delegate respondsToSelector:@selector(ActivityPerform)]) {
         [_delegate ActivityPerform];
 
