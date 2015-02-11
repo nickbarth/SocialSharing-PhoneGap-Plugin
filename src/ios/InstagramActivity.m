@@ -24,7 +24,30 @@
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
-  self.activityItems = activityItems;
+  //self.activityItems = activityItems;
+  int counter = 0;
+  NSString *message;
+  NSURL *url;
+  UIImage *image;
+
+  for (id item in self.activityItems) {
+    counter++;
+    if ([item isKindOfClass:[NSString class]]) {
+      message = item;
+    }
+
+    if ([item isKindOfClass:[NSURL class]]) {
+      url = item;
+    }
+    if ([item isKindOfClass:[UIImage class]]) {
+      image = item;
+    }
+  }
+
+  [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
+  [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[url absoluteString] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
+  [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"A string: %d", counter] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
+  [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"height %d | width %d", image.size.height, image.size.width] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
 }
 
 - (UIViewController*) activityViewController
@@ -34,30 +57,6 @@
 
 - (void)performActivity
 {
-    int counter = 0;
-    NSString *message;
-    NSURL *url;
-    NSString *image;
-
-    for (id object in self.activityItems) {
-        counter++;
-        if ([object isKindOfClass:[NSString class]]) {
-          message = object;
-        }
-
-        if ([object isKindOfClass:[NSURL class]]) {
-          url = object;
-        }
-
-        if ([object isKindOfClass:NSClassFromString(@"__NSCFString")]) {
-          image = object;
-        }
-    }
-
-    [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
-    [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[url absoluteString] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
-    [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:image delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
-    [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"A string: %d", counter] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
 }
 
 @end

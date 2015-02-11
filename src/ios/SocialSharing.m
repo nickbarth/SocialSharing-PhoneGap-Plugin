@@ -57,7 +57,7 @@
   NSMutableArray *files = [[NSMutableArray alloc] init];
   if (filenames != (id)[NSNull null] && filenames.count > 0) {
     for (NSString* filename in filenames) {
-      NSObject *file = [self getImage:filename];
+      UIImage *file = [self getImage:filename];
       if (file == nil) {
         file = [self getFile:filename];
       }
@@ -65,7 +65,7 @@
         [files addObject:file];
       }
     }
-    [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:@"added file" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
+
     [activityItems addObjectsFromArray:files];
   }
 
