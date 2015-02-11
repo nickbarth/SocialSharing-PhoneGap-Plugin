@@ -36,27 +36,17 @@
 {
     int counter = 0;
     NSString *message;
-    NSString *subject;
-    NSString *image;
-    NSString *link;
 
     for (id object in self.activityItems) {
+        counter++;
         if ([object isKindOfClass:[NSString class]]) {
-          counter++;
-          if (counter == 1) message = object;
-          if (counter == 2) subject = object;
-          if (counter == 3) image = object;
-          if (counter == 4) link = object;
+          message = object;
         }
     }
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
-    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:subject delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    [alert show];
-    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:image delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    [alert show];
-    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:link delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"A string: %d", counter] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
 }
 
