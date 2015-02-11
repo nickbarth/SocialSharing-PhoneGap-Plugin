@@ -41,7 +41,6 @@
     NSURL *image;
 
     for (id object in self.activityItems) {
-        counter++;
         if ([object isKindOfClass:[NSString class]]) {
           message = object;
         }
@@ -51,6 +50,7 @@
         }
 
         if ([object isKindOfClass:[NSMutableArray class]]) {
+          counter++;
           files = [NSArray arrayWithArray:object];
           image = [files objectAtIndex:0];
         }
