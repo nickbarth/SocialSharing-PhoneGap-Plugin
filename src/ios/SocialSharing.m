@@ -83,7 +83,7 @@
   if (subject != (id)[NSNull null]) {
     [activityVC setValue:subject forKey:@"subject"];
   }
-  
+
   [activityVC setCompletionHandler:^(NSString *activityType, BOOL completed) {
     [self cleanupStoredFiles];
     CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:completed];
@@ -92,7 +92,7 @@
 
    NSArray * socialSharingExcludeActivities = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SocialSharingExcludeActivities"];
    if (socialSharingExcludeActivities!=nil && [socialSharingExcludeActivities count] > 0) {
-       activityVC.excludedActivityTypes = @[UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeSaveToCameraRoll, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint];
+       activityVC.excludedActivityTypes = socialSharingExcludeActivities;
    }
 
   // iPad on iOS >= 8 needs a different approach
