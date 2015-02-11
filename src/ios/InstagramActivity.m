@@ -39,15 +39,11 @@
     if ([item isKindOfClass:[NSURL class]]) {
       url = item;
     }
+
     if ([item isKindOfClass:[UIImage class]]) {
       image = item;
-      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:@"image" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-      UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 200, 200)];
-
-      [imageView setImage:image];
-      [alert addSubview: imageView];
-
-      [alert show];
+      NSString *base64 = [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+      [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:base64 delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
     }
   }
 
