@@ -92,7 +92,7 @@
 
    NSArray * socialSharingExcludeActivities = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"SocialSharingExcludeActivities"];
    if (socialSharingExcludeActivities!=nil && [socialSharingExcludeActivities count] > 0) {
-       activityVC.excludedActivityTypes = socialSharingExcludeActivities;
+       activityVC.excludedActivityTypes = @[UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeSaveToCameraRoll, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypePrint];
    }
 
   // iPad on iOS >= 8 needs a different approach
