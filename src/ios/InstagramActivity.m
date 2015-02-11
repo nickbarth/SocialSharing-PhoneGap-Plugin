@@ -40,22 +40,20 @@
       url = item;
     }
     if ([item isKindOfClass:[UIImage class]]) {
-      [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:@"Image Loaded" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
       image = item;
+      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:@"image" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+      UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 200, 200)];
+
+      [imageView setImage:image];
+      [alert addSubview: imageView];
+
+      [alert show];
     }
   }
 
   [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
   [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[url absoluteString] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
   [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"A string: %d", counter] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
-
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:@"image" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-  UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 200, 200)];
-
-  [imageView setImage:image];
-  [alert addSubview: imageView];
-
-  [alert show];
 }
 
 - (UIViewController*) activityViewController
