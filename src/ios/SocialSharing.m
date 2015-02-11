@@ -65,6 +65,7 @@
         [files addObject:file];
       }
     }
+    [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:@"added file" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
     [activityItems addObjectsFromArray:files];
   }
 
