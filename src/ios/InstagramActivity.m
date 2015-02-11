@@ -30,7 +30,7 @@
   NSURL *url;
   UIImage *image;
 
-  for (id item in self.activityItems) {
+  for (id item in activityItems) {
     counter++;
     if ([item isKindOfClass:[NSString class]]) {
       message = item;
