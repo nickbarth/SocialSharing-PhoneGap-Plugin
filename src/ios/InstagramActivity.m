@@ -41,6 +41,10 @@
     NSURL *image;
 
     for (id object in self.activityItems) {
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:NSStringFromClass[object class] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        [alert show];
+
         if ([object isKindOfClass:[NSString class]]) {
           message = object;
         }
@@ -56,6 +60,7 @@
         }
     }
 
+    /*
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
     alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[url absoluteString] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -64,6 +69,7 @@
     [alert show];
     alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"A string: %d", counter] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
+    */
 }
 
 @end
