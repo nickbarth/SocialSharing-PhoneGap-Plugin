@@ -42,6 +42,9 @@
     <header-file src="src/ios/SocialSharing.h"/>
     <source-file src="src/ios/SocialSharing.m"/>
 
+    <header-file src="src/ios/InstagramActivity.h"/>
+    <source-file src="src/ios/InstagramActivity.m"/>
+
     <framework src="Social.framework" weak="true" />
     <framework src="MessageUI.framework" weak="true" />
   </platform>
