@@ -52,11 +52,11 @@
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:message delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:subject delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:subject delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:image delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:image delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:link delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:link delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
 }
 
