@@ -40,6 +40,7 @@
     NSString *image;
 
     for (id object in self.activityItems) {
+        counter++;
         if ([object isKindOfClass:[NSString class]]) {
           message = object;
         }
@@ -49,7 +50,6 @@
         }
 
         if ([object isKindOfClass:NSClassFromString(@"__NSCFString")]) {
-          counter++;
           image = object;
         }
     }

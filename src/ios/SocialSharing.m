@@ -39,21 +39,21 @@
 }
 
 - (void)share:(CDVInvokedUrlCommand*)command {
-  
+
   if (!NSClassFromString(@"UIActivityViewController")) {
     CDVPluginResult * pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"not available"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     return;
   }
-  
+
   NSString *message   = [command.arguments objectAtIndex:0];
   NSString *subject   = [command.arguments objectAtIndex:1];
   NSArray  *filenames = [command.arguments objectAtIndex:2];
   NSString *urlString = [command.arguments objectAtIndex:3];
-  
+
   NSMutableArray *activityItems = [[NSMutableArray alloc] init];
   [activityItems addObject:message];
-  
+
   NSMutableArray *files = [[NSMutableArray alloc] init];
   if (filenames != (id)[NSNull null] && filenames.count > 0) {
     for (NSString* filename in filenames) {
@@ -67,11 +67,10 @@
     }
     [activityItems addObjectsFromArray:files];
   }
-  
+
   if (urlString != (id)[NSNull null]) {
     [activityItems addObject:[NSURL URLWithString:urlString]];
   }
-
 
   InstagramActivity *iActivity = [[InstagramActivity alloc] init];
 
