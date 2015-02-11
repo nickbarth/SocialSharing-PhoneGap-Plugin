@@ -1,9 +1,8 @@
 #import <UIKit/UIKit.h>
 
-@protocol InstagramActivityDelegate <NSObject>
--(void)ActivityPerform;
-@end
-
 @interface InstagramActivity : UIActivity
- @property(nonatomic,strong)id <InstagramActivityDelegate>delegate;
+@property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy) NSString *subject;
+@property (nonatomic, copy) NSString *image;
+@property (nonatomic, copy) NSString *link;
 @end

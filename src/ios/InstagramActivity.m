@@ -4,12 +4,12 @@
 
 - (NSString *)activityType
 {
-    return @"beep.instagram.share";
+    return @"beep.Instagram.Share";
 }
 
 - (NSString *)activityTitle
 {
-    return @"Instagram";
+    return @"Instagram Share";
 }
 
 - (UIImage *)activityImage
@@ -24,29 +24,27 @@
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
+    for (id object in self.activityItems) {
+        if ([object isKindOfClass:[NSString class]]) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:object delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            [alert show];
+            // break;
+        }
+    }
 }
 
-- (UIViewController *)activityViewController
+- (UIViewController*) activityViewController
 {
     return nil;
 }
 
 - (void)performActivity
 {
-    NSString *test = [InstagramActivity(activityItems) firstObject];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:test delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView" message:@"hi" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     [alert show];
 
-    if (_delegate && [_delegate respondsToSelector:@selector(ActivityPerform)]) {
-        [_delegate ActivityPerform];
-
-        NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
-
-        if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
-              NSURL *instaURL = [NSURL URLWithString:@"instagram://camera?annotation=youcandoit"];
-              [[UIApplication sharedApplication] openURL:instaURL];
-        }
-    }
+    // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=yourappid"]];
+    // [self activityDidFinish:YES];
 }
 
 @end
