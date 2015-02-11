@@ -1,4 +1,5 @@
 #import "SocialSharing.h"
+#import "InstagramActivity.h"
 #import <Cordova/CDV.h>
 #import <Social/Social.h>
 #import <Foundation/NSException.h>
@@ -70,9 +71,14 @@
   if (urlString != (id)[NSNull null]) {
     [activityItems addObject:[NSURL URLWithString:urlString]];
   }
-  
+
+
+  InstagramActivity *iActivity = [[InstagramActivity alloc] init];
+
   UIActivity *activity = [[UIActivity alloc] init];
   NSArray *applicationActivities = [[NSArray alloc] initWithObjects:activity, nil];
+  applicationActivities = [applicationActivities arrayByAddingObject: iActivity];
+
   UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:applicationActivities];
   if (subject != (id)[NSNull null]) {
     [activityVC setValue:subject forKey:@"subject"];
