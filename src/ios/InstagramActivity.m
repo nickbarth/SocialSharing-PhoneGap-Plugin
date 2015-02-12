@@ -70,7 +70,9 @@ self.activityItems = activityItems;
     NSString *escapedString = [assetURL.absoluteString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSString *escapedCaption = [message stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@&InstagramCaption=%@", escapedString, escapedCaption]];
-    [[UIApplication sharedApplication] openURL:instagramURL];
+
+    [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:assetURL.absoluteString delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
+    // [[UIApplication sharedApplication] openURL:instagramURL];
   }];
 }
 
