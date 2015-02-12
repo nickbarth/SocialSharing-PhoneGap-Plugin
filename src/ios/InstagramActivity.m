@@ -59,7 +59,6 @@
     NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@&InstagramCaption=%@", escapedString, escapedCaption]];
     [[UIApplication sharedApplication] openURL:instagramURL];
   }];
-  [assetLib release];
 }
 
 @end
