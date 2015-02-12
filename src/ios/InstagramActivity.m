@@ -62,9 +62,15 @@ self.activityItems = activityItems;
   [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[url absoluteString] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
   [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"A string: %d", counter] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
 
-  NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
-  [[UIApplication sharedApplication] openURL:instagramURL];
-  UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+  ALAssetsLibrary *assetLib = [[ALAssetsLibrary alloc] init];
+  [assetLib writeImageToSavedPhotosAlbum:image.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
+    // NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
+    // UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    NSString *escapedString = [assetLib.absoluteString urlencodedString];
+    NSString *escapedCaption = [message urlencodedString];
+    NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@&InstagramCaption=%@", escapedString, escapedCaption]];
+    [[UIApplication sharedApplication] openURL:instagramURL];
+  }];
 }
 
 @end
