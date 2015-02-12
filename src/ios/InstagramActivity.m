@@ -64,6 +64,7 @@ self.activityItems = activityItems;
 
   NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
   [[UIApplication sharedApplication] openURL:instagramURL];
+  UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
 @end
