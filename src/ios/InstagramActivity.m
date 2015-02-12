@@ -52,7 +52,7 @@
 - (void)performActivity
 {
   // UIImageWriteToSavedPhotosAlbum(self.image, self, @selector(imageSavedToPhotosAlbum: didFinishSavingWithError: contextInfo:), nil);
-  ALAssetsLibrary *assetLib = [[ALAssetsLibrary alloc] init];
+  ALAssetsLibrary *assetLib = [[[ALAssetsLibrary alloc] init] autorelease];
   [assetLib writeImageToSavedPhotosAlbum:self.image.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
     NSString *escapedString = [assetURL.absoluteString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSString *escapedCaption = [self.message stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
