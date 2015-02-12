@@ -1,4 +1,5 @@
 #import "InstagramActivity.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @implementation InstagramActivity
 
