@@ -48,7 +48,7 @@
 
 - (void)performActivity
 {
-  ALAssetsLibrary *assetLib = [[[ALAssetsLibrary alloc] init] autorelease];
+  ALAssetsLibrary *assetLib = [[ALAssetsLibrary alloc] init];
   [assetLib writeImageToSavedPhotosAlbum:self.image.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
     NSString *escapedString = [assetURL.absoluteString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSString *escapedCaption = [self.message stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
