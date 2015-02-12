@@ -10,12 +10,12 @@
 
 - (NSString *)activityTitle
 {
-  return @"Instagram Share";
+  return @"Instagram";
 }
 
 - (UIImage *)activityImage
 {
-  return [UIImage imageNamed:@"icon-40.png"];
+  return [UIImage imageNamed:@"instagramShare.png"];
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
