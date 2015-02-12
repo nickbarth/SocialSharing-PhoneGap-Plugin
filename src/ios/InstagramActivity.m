@@ -67,11 +67,16 @@ self.activityItems = activityItems;
   [assetLib writeImageToSavedPhotosAlbum:image.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
     // NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
     // UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    NSString *escapedString = [assetLib.absoluteString urlencodedString];
+    NSString *escapedString = [assetURL.absoluteString urlencodedString];
     NSString *escapedCaption = [message urlencodedString];
     NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"instagram://library?AssetPath=%@&InstagramCaption=%@", escapedString, escapedCaption]];
     [[UIApplication sharedApplication] openURL:instagramURL];
   }];
+}
+
+- (NSString*)urlencodedString
+{
+  return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
 }
 
 @end
