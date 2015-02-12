@@ -63,7 +63,7 @@ self.activityItems = activityItems;
   [[[UIAlertView alloc] initWithTitle:@"UIAlertView" message:[NSString stringWithFormat:@"A string: %d", counter] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil] show];
 
   NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
-  [[UIApplication sharedApplication] openURL:instagramURL]
+  [[UIApplication sharedApplication] openURL:instagramURL];
 }
 
 @end
